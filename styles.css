@@ -1,0 +1,427 @@
+/* ==========================================================================
+   SCATE — South Carolina Association for Telangana Empowerment
+   styles.css
+   Palette: maroon #7A1220 · gold #C08A2E · cream #FBF5E9 · sand #EFE1C4
+            ink #14203A
+   Type:    Marcellus (headings) · Karla (body)
+   ========================================================================== */
+
+:root {
+  --maroon: #7a1220;
+  --maroon-deep: #5c0d18;
+  --gold: #c08a2e;
+  --gold-light: #e3c076;
+  --cream: #fbf5e9;
+  --sand: #efe1c4;
+  --ink: #14203a;
+  --text: #2b2521;
+  --muted: #6b6259;
+  --white: #ffffff;
+  --radius: 14px;
+  --shadow: 0 6px 22px rgba(90, 40, 20, 0.1);
+  --max: 1160px;
+  --gutter: 24px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(192, 138, 46, .25);
+  background: var(--cream);
+  color: var(--text);
+  font-family: "Karla", "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--maroon); }
+
+h1, h2, h3, h4 {
+  font-family: "Marcellus", Georgia, "Times New Roman", serif;
+  color: var(--maroon);
+  line-height: 1.2;
+  font-weight: 400;
+  margin: 0 0 .5em;
+  letter-spacing: .01em;
+}
+
+h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); }
+h3 { font-size: 1.25rem; }
+
+p { margin: 0 0 1em; max-width: 68ch; }
+
+.wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+
+section { padding: 72px 0; }
+section.tight { padding: 52px 0; }
+
+.on-cream { background: var(--cream); }
+.on-white { background: var(--white); }
+.on-sand  { background: var(--sand); }
+
+.on-maroon { background: var(--maroon); color: #f6e9d8; }
+.on-maroon h2, .on-maroon h3 { color: var(--gold-light); }
+
+.on-ink { background: var(--ink); color: #dfe4ee; }
+.on-ink h2, .on-ink h3 { color: var(--gold-light); }
+
+.lede { font-size: 1.08rem; color: var(--muted); }
+.on-maroon .lede, .on-ink .lede { color: #e8d9c4; }
+
+.center { text-align: center; }
+.center p { margin-left: auto; margin-right: auto; }
+
+/* --- Toranam divider (Kakatiya Kala Thoranam arch motif) ------------------ */
+.toranam { display: block; width: 190px; height: 34px; margin: 0 auto 18px; }
+.toranam path, .toranam circle { fill: none; stroke: var(--gold); stroke-width: 2; }
+
+/* --- Header -------------------------------------------------------------- */
+.site-header {
+  position: sticky; top: 0; z-index: 60;
+  background: rgba(251, 245, 233, .96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(122, 18, 32, .14);
+}
+.header-inner {
+  display: flex; align-items: center; gap: 18px;
+  min-height: 74px;
+}
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; margin-right: auto; }
+.brand-mark {
+  width: 44px; height: 44px; flex: none;
+  border-radius: 50%;
+  background: var(--maroon);
+  color: var(--gold-light);
+  display: grid; place-items: center;
+  font-family: "Marcellus", serif; font-size: .95rem; letter-spacing: .04em;
+  border: 2px solid var(--gold);
+}
+.brand-name { font-family: "Marcellus", serif; font-size: 1.35rem; color: var(--maroon); line-height: 1; }
+.brand-sub { font-size: .72rem; color: var(--muted); letter-spacing: .02em; }
+
+.nav { display: flex; align-items: center; gap: 22px; }
+.nav a {
+  text-decoration: none; color: var(--text); font-size: .95rem;
+  padding: 6px 0; border-bottom: 2px solid transparent;
+}
+.nav a:hover, .nav a:focus-visible { color: var(--maroon); border-bottom-color: var(--gold); }
+
+.btn {
+  display: inline-block; text-decoration: none; cursor: pointer;
+  font-family: "Karla", sans-serif; font-size: .95rem; font-weight: 700;
+  padding: 11px 22px; border-radius: 999px; border: 2px solid transparent;
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease;
+}
+.btn-gold { background: var(--gold); color: #2b1a05; }
+.btn-gold:hover { background: var(--gold-light); }
+.btn-maroon { background: var(--maroon); color: #fdf3e2; }
+.btn-maroon:hover { background: var(--maroon-deep); }
+.btn-outline { border-color: var(--gold); color: var(--maroon); background: transparent; }
+.on-maroon .btn-outline, .on-ink .btn-outline { color: var(--gold-light); }
+.btn-outline:hover { background: rgba(192, 138, 46, .16); }
+.btn-sm { padding: 8px 16px; font-size: .85rem; }
+
+.menu-toggle {
+  display: none; background: none; border: 0; cursor: pointer;
+  padding: 8px; color: var(--maroon);
+}
+.menu-toggle svg { width: 26px; height: 26px; }
+
+/* --- Hero ---------------------------------------------------------------- */
+.hero { background: var(--maroon); padding: 0; }
+.hero-banner { position: relative; }
+.hero-banner img { width: 100%; height: auto; }
+
+/* Fallback panel shown until images/scate-banner.jpg is added */
+.hero-fallback {
+  min-height: clamp(300px, 46vw, 520px);
+  display: grid; place-items: center; text-align: center;
+  padding: 56px 24px;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(192, 138, 46, .28), transparent 42%),
+    radial-gradient(circle at 82% 78%, rgba(192, 138, 46, .22), transparent 44%),
+    linear-gradient(160deg, #8d1826 0%, #5c0d18 100%);
+  color: #fdf3e2;
+}
+.hero-fallback .toranam path, .hero-fallback .toranam circle { stroke: var(--gold-light); }
+.hero-fallback h1 {
+  color: #fdf3e2; font-size: clamp(1.7rem, 4.4vw, 3.1rem); margin-bottom: .35em;
+}
+.hero-tagline { color: var(--gold-light); letter-spacing: .14em; font-size: .9rem; margin-bottom: 1.2em; }
+.hero-lines { font-size: clamp(1rem, 1.9vw, 1.2rem); color: #f0dfc7; margin: 0 auto 1.8em; max-width: 34ch; }
+.hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.image-note {
+  background: rgba(20, 32, 58, .92); color: #e6d9bf;
+  font-size: .8rem; text-align: center; padding: 8px 16px;
+}
+.image-note code { color: var(--gold-light); }
+
+/* --- Four C's ------------------------------------------------------------ */
+.cs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.c-card {
+  background: var(--white); border: 1px solid rgba(122, 18, 32, .12);
+  border-top: 3px solid var(--gold);
+  border-radius: var(--radius); padding: 26px 20px; text-align: center;
+  box-shadow: var(--shadow);
+}
+.c-card svg { width: 34px; height: 34px; stroke: var(--maroon); fill: none; stroke-width: 1.6; margin-bottom: 10px; }
+.c-card h3 { font-size: 1.05rem; letter-spacing: .06em; margin-bottom: .3em; }
+.c-card p { font-size: .92rem; color: var(--muted); margin: 0; }
+
+/* --- Mission ------------------------------------------------------------- */
+.mission-statement {
+  font-family: "Marcellus", serif; font-size: clamp(1.1rem, 2.1vw, 1.45rem);
+  line-height: 1.6; max-width: 58ch; margin: 0 auto 2.4em; text-align: center;
+}
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.mission-card {
+  background: rgba(251, 245, 233, .08);
+  border: 1px solid rgba(227, 192, 118, .35);
+  border-radius: var(--radius); padding: 24px;
+}
+.mission-card h3 { font-size: 1.1rem; }
+.mission-card p { font-size: .93rem; margin: 0; }
+
+/* --- Heritage ------------------------------------------------------------ */
+.heritage-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.heritage-card {
+  background: var(--white); border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow); border: 1px solid rgba(122, 18, 32, .1);
+}
+.heritage-art {
+  aspect-ratio: 4 / 3; overflow: hidden;
+  background: #14203a;
+}
+.heritage-art svg { width: 100%; height: 100%; display: block; }
+.heritage-body { padding: 16px 18px 20px; }
+.heritage-body h3 { font-size: 1.02rem; margin-bottom: .25em; }
+.heritage-body p { font-size: .88rem; color: var(--muted); margin: 0; }
+
+/* --- Events -------------------------------------------------------------- */
+.event-card {
+  background: var(--white); border-radius: var(--radius); overflow: hidden;
+  box-shadow: var(--shadow); display: flex; flex-direction: column;
+  border: 1px solid rgba(122, 18, 32, .1);
+}
+.event-art {
+  aspect-ratio: 16 / 9; background: var(--sand);
+  display: grid; place-items: center; color: var(--maroon);
+  font-size: .8rem; letter-spacing: .06em; border-bottom: 3px solid var(--gold);
+}
+.event-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.event-meta { font-size: .88rem; color: var(--muted); margin: 0 0 .8em; }
+.event-meta span { display: block; }
+.event-body p.desc { font-size: .93rem; }
+.event-actions { display: flex; gap: 10px; margin-top: auto; padding-top: 14px; flex-wrap: wrap; }
+
+/* --- Membership ---------------------------------------------------------- */
+.tiers { display: grid; grid-template-columns: repeat(2, minmax(0, 300px)); gap: 22px; justify-content: center; margin: 2em 0; }
+.tier {
+  background: var(--white); border-radius: var(--radius); padding: 30px 24px; text-align: center;
+  border: 2px solid var(--gold); box-shadow: var(--shadow);
+}
+.tier .price { font-family: "Marcellus", serif; font-size: 2.4rem; color: var(--maroon); line-height: 1; }
+.tier .per { color: var(--muted); font-size: .9rem; margin-bottom: 1em; }
+
+/* --- Leadership ---------------------------------------------------------- */
+.leaders { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.leader { text-align: center; }
+.leader .photo {
+  width: 120px; height: 120px; margin: 0 auto 14px; border-radius: 50%;
+  background: var(--sand); border: 2px solid var(--gold);
+  display: grid; place-items: center;
+}
+.leader .photo svg { width: 52px; height: 52px; stroke: var(--maroon); fill: none; stroke-width: 1.4; }
+.leader h3 { font-size: 1.05rem; margin-bottom: .1em; }
+.leader .role { color: var(--muted); font-size: .9rem; margin: 0; }
+
+/* --- Gallery ------------------------------------------------------------- */
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.gallery button {
+  all: unset; cursor: pointer; display: block; border-radius: var(--radius); overflow: hidden;
+  aspect-ratio: 4 / 3; background: linear-gradient(150deg, #8d1826, #5c0d18);
+  color: #f3e3c9; display: grid; place-items: center; text-align: center; padding: 14px;
+  font-size: .95rem; border: 1px solid rgba(192, 138, 46, .5);
+}
+.gallery button:nth-child(3n+2) { background: linear-gradient(150deg, #1b2c4d, #14203a); }
+.gallery button:nth-child(3n+3) { background: linear-gradient(150deg, #a8761f, #7a5312); }
+.gallery button:hover, .gallery button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+
+.lightbox {
+  position: fixed; inset: 0; z-index: 90; display: none;
+  background: rgba(12, 10, 8, .88); place-items: center; padding: 24px;
+}
+.lightbox[open], .lightbox.is-open { display: grid; }
+.lightbox-inner {
+  background: var(--cream); border-radius: var(--radius); max-width: 720px; width: 100%;
+  padding: 34px 28px; text-align: center; position: relative;
+}
+.lightbox-close {
+  position: absolute; top: 10px; right: 14px; background: none; border: 0;
+  font-size: 1.6rem; line-height: 1; cursor: pointer; color: var(--maroon);
+}
+
+/* --- Get involved -------------------------------------------------------- */
+.involve { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.involve-card {
+  background: rgba(255, 255, 255, .06); border: 1px solid rgba(227, 192, 118, .4);
+  border-radius: var(--radius); padding: 26px 20px; text-align: center;
+}
+.involve-card svg { width: 32px; height: 32px; stroke: var(--gold-light); fill: none; stroke-width: 1.5; margin-bottom: 10px; }
+.involve-card p { font-size: .9rem; margin-bottom: 1.2em; }
+
+/* --- Contact ------------------------------------------------------------- */
+.contact-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; align-items: start; }
+.field { margin-bottom: 16px; }
+.field label { display: block; font-size: .88rem; margin-bottom: 5px; color: var(--muted); }
+.field input, .field textarea {
+  width: 100%; font: inherit; font-size: .95rem; padding: 11px 13px;
+  border: 1px solid rgba(122, 18, 32, .25); border-radius: 10px;
+  background: var(--white); color: var(--text);
+}
+.field input:focus, .field textarea:focus { outline: 2px solid var(--gold); outline-offset: 1px; border-color: var(--gold); }
+.field textarea { min-height: 130px; resize: vertical; }
+.form-status { font-size: .92rem; color: var(--maroon); min-height: 1.4em; }
+
+.contact-list { list-style: none; padding: 0; margin: 0 0 1.4em; }
+.contact-list li { padding: 9px 0; border-bottom: 1px dashed rgba(122, 18, 32, .2); font-size: .95rem; }
+.contact-list span { color: var(--muted); }
+
+/* --- Footer -------------------------------------------------------------- */
+.site-footer { background: var(--maroon-deep); color: #e9d8be; padding: 54px 0 26px; }
+.site-footer h3 { color: var(--gold-light); font-size: 1.1rem; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 34px; }
+.site-footer a { color: #e9d8be; text-decoration: none; }
+.site-footer a:hover { color: var(--gold-light); text-decoration: underline; }
+.footer-links { list-style: none; padding: 0; margin: 0; }
+.footer-links li { padding: 4px 0; }
+.footer-motto { color: var(--gold-light); letter-spacing: .1em; font-size: .9rem; }
+.footer-bottom {
+  margin-top: 34px; padding-top: 18px; border-top: 1px solid rgba(227, 192, 118, .25);
+  font-size: .82rem; color: #cbb694; text-align: center;
+}
+.footer-bottom p { max-width: none; margin: .3em 0; }
+
+.skip-link {
+  position: absolute; left: -9999px; background: var(--maroon); color: #fff;
+  padding: 10px 16px; z-index: 100;
+}
+.skip-link:focus { left: 12px; top: 12px; }
+
+/* --- Responsive ---------------------------------------------------------- */
+@media (max-width: 1040px) {
+  .heritage-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 960px) {
+  .cs, .leaders, .involve { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; gap: 34px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* --- Tablet and phone ---------------------------------------------------- */
+@media (max-width: 760px) {
+  :root { --gutter: 18px; }
+
+  body { font-size: 16px; }
+
+  /* Header: hamburger, roomier tap targets */
+  .header-inner { position: relative; min-height: 62px; gap: 10px; }
+  .menu-toggle {
+    display: grid; place-items: center;
+    width: 46px; height: 46px; margin-right: -8px; border-radius: 10px;
+  }
+  .menu-toggle:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .brand-mark { width: 38px; height: 38px; font-size: .85rem; }
+  .brand-name { font-size: 1.15rem; }
+  .brand-sub { font-size: .62rem; display: block; line-height: 1.25; max-width: 190px; }
+
+  .nav {
+    position: absolute; top: 100%; left: calc(var(--gutter) * -1); right: calc(var(--gutter) * -1);
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--cream);
+    border-bottom: 1px solid rgba(122, 18, 32, .18);
+    box-shadow: 0 14px 22px rgba(60, 20, 10, .14);
+    padding: 4px var(--gutter) 18px;
+    display: none;
+    max-height: calc(100vh - 62px); overflow-y: auto;
+  }
+  .nav.is-open { display: flex; }
+  .nav a {
+    padding: 14px 2px; font-size: 1rem;
+    border-bottom: 1px solid rgba(122, 18, 32, .1);
+    border-left: 3px solid transparent;
+  }
+  .nav a:hover, .nav a:focus-visible { border-bottom-color: rgba(122, 18, 32, .1); padding-left: 10px; border-left-color: var(--gold); }
+  .site-header > .wrap > .btn-gold { display: none; }
+  .nav .btn-gold { display: block; text-align: center; margin-top: 14px; padding: 13px 22px; font-size: 1rem; }
+
+  /* Sections */
+  section { padding: 48px 0; }
+  section.tight { padding: 36px 0; }
+  h2 { font-size: clamp(1.55rem, 6vw, 2rem); }
+  p { max-width: none; }
+  .lede { font-size: 1rem; }
+
+  /* Hero */
+  .hero-fallback { min-height: 0; padding: 46px 20px 42px; }
+  .hero-fallback h1 { font-size: clamp(1.45rem, 6.6vw, 2rem); }
+  .hero-tagline { letter-spacing: .1em; font-size: .8rem; }
+  .hero-lines { font-size: 1rem; }
+  .hero-actions { flex-direction: column; align-items: stretch; gap: 10px; max-width: 300px; margin: 0 auto; }
+  .hero-actions .btn { padding: 14px 22px; }
+  .toranam { width: 150px; }
+  .image-note { font-size: .74rem; padding: 9px 16px; line-height: 1.45; }
+
+  /* Cards */
+  .cs, .grid-3, .involve { grid-template-columns: 1fr; gap: 14px; }
+  .heritage-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .heritage-body { padding: 13px 14px 16px; }
+  .heritage-body h3 { font-size: .95rem; }
+  .heritage-body p { font-size: .82rem; }
+  .c-card, .mission-card, .involve-card { padding: 22px 18px; }
+  .mission-statement { font-size: 1.05rem; text-align: left; }
+
+  /* Events, membership, leadership */
+  .event-actions .btn { flex: 1; text-align: center; padding: 12px 14px; }
+  .tiers { grid-template-columns: 1fr; max-width: 320px; margin-inline: auto; }
+  .leaders { grid-template-columns: repeat(2, 1fr); gap: 22px 14px; }
+  .leader .photo { width: 96px; height: 96px; }
+  .leader h3 { font-size: .95rem; }
+  .leader .role { font-size: .85rem; }
+
+  /* Gallery */
+  .gallery { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .gallery button { font-size: .85rem; padding: 10px; }
+  .lightbox { padding: 16px; align-content: center; }
+  .lightbox-inner { padding: 30px 20px 26px; }
+
+  /* Contact + footer */
+  .field input, .field textarea { font-size: 16px; padding: 13px; } /* 16px stops iOS zoom */
+  #contact-form .btn { width: 100%; text-align: center; padding: 14px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 26px; }
+  .site-footer { padding: 44px 0 22px; }
+  .footer-links li a { display: inline-block; padding: 5px 0; }
+}
+
+@media (max-width: 400px) {
+  .heritage-grid, .leaders { grid-template-columns: 1fr; }
+  .heritage-art { aspect-ratio: 16 / 9; }
+  .gallery { grid-template-columns: 1fr; }
+  .gallery button { aspect-ratio: 16 / 7; }
+  .brand-sub { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}
