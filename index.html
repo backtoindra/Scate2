@@ -628,18 +628,20 @@
 </section>
 
 <!-- ================= CONTACT ================= -->
-<section class="on-white" id="contact">
+
+  <section class="on-white" id="contact">
   <div class="wrap">
     <h2 class="center">Connect With SCATE</h2>
     <div class="contact-grid">
-      <form id="contact-form" novalidate>
+      <form id="contact-form" action="https://formspree.io/f/xkjggpeq" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New message from SCATE website">
         <div class="field">
           <label for="name">Name</label>
           <input id="name" name="name" type="text" autocomplete="name" required>
         </div>
         <div class="field">
           <label for="email">Email</label>
-          <input id="email" name="email" type="email" autocomplete="email" required>
+          <input id="email" name="_replyto" type="email" autocomplete="email" required>
         </div>
         <div class="field">
           <label for="phone">Phone</label>
@@ -656,7 +658,7 @@
         <button class="btn btn-maroon" type="submit">Send message</button>
         <p class="form-status" id="form-status" role="status"></p>
       </form>
-
+ 
       <div>
         <h3>Reach us</h3>
         <ul class="contact-list">
@@ -673,6 +675,7 @@
     </div>
   </div>
 </section>
+ 
 
 </main>
 
