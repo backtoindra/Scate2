@@ -93,8 +93,39 @@
   if (form && status) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      status.textContent =
-        "Thanks — this form is not connected yet. Add your form service or email address in script.js to start receiving messages.";
+
+      if (form.action.indexOf("YOUR_FORM_ID") !== -1) {
+        status.textContent =
+          "Form not connected yet — replace YOUR_FORM_ID in index.html with your real Formspree form ID.";
+        return;
+      }
+
+      var submitBtn = form.querySelector("button[type=submit]");
+      submitBtn.disabled = true;
+      status.textContent = "Sending…";
+
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      })
+        .then(function (res) {
+          if (res.ok) {
+            status.textContent = "Thank you — your message has been sent. We'll be in touch soon.";
+            form.reset();
+          } else {
+            return res.json().then(function (data) {
+              throw new Error((data && data.error) || "Something went wrong.");
+            });
+          }
+        })
+        .catch(function () {
+          status.textContent =
+            "Sorry, something went wrong sending your message. Please try again or email us directly.";
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+        });
     });
   }
 
